@@ -34,5 +34,21 @@ namespace VendorTracker.Tests
       string result = newOrder.Description;
       Assert.AreEqual(description, result);
     }
+      [TestMethod]
+    public void GetOrderPrice_ReturnOrderPrice_String()
+    {
+      string price = "12";
+      Order newOrder = new Order ("Bread", "Description", price, "Date");
+      string result = newOrder.Price;
+      Assert.AreEqual(price, result);
+    }
+      [TestMethod]
+    public void GetOrderDate_ReturnOrderDate_String()
+    {
+      string date = "June 12th 2021";
+      Order newOrder = new Order ("Bread", "Description", "Price", date);
+      string result = newOrder.Date;
+      Assert.AreEqual(date, result);
+    }
   }
 }
