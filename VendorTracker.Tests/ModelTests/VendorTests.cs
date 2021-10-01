@@ -41,5 +41,14 @@ namespace VendorTracker.Tests
       List<Vendor> result = Vendor.GetAll();
       CollectionAssert.AreEqual(newVendorList, result);
     }
+    [TestMethod]
+    public void GetAll_ReturnVendorList_VendorList()
+    {
+      Vendor newVendor1 = new Vendor ("name1", "description1");
+      Vendor newVendor2 = new Vendor ("name2", "description2");
+      List<Vendor> list = new List<Vendor> {newVendor1, newVendor2};
+      List<Vendor> result = Vendor.GetAll();
+      CollectionAssert.AreEqual(list, result);
+    }
   }
 }
