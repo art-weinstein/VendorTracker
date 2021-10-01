@@ -16,6 +16,7 @@ namespace VendorTracker.Models
       VendorDescription = vendorDescription;
       _instances.Add(this);
       Id = _instances.Count;
+      Purchases = new List<Order>{};
     }
     public static List<Vendor> GetAll()
     {
@@ -28,6 +29,10 @@ namespace VendorTracker.Models
     public static Vendor Find(int searchId)
     {
       return _instances[searchId - 1];
+    }
+    public void AddOrder(Order order)
+    {
+      Purchases.Add(order);
     }
   }
 }
