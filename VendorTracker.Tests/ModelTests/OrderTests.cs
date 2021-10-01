@@ -26,5 +26,13 @@ namespace VendorTracker.Tests
       string result = newOrder.Title;
       Assert.AreEqual(title, result);
     }
+      [TestMethod]
+    public void GetOrderDescription_ReturnOrderDescription_String()
+    {
+      string description = "Baked Fresh";
+      Order newOrder = new Order ("bread", description, "Price", "Date");
+      string result = newOrder.Description;
+      Assert.AreEqual(description, result);
+    }
   }
 }
