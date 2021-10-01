@@ -26,7 +26,7 @@ namespace VendorTracker.Tests
       string result = newOrder.Title;
       Assert.AreEqual(title, result);
     }
-      [TestMethod]
+    [TestMethod]
     public void GetOrderDescription_ReturnOrderDescription_String()
     {
       string description = "Baked Fresh";
@@ -34,7 +34,7 @@ namespace VendorTracker.Tests
       string result = newOrder.Description;
       Assert.AreEqual(description, result);
     }
-      [TestMethod]
+    [TestMethod]
     public void GetOrderPrice_ReturnOrderPrice_String()
     {
       string price = "12";
@@ -57,19 +57,29 @@ namespace VendorTracker.Tests
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(newOrderList, result);
     }
-      [TestMethod]
+    [TestMethod]
     public void GetAll_InstantiateOrderId_Int()
     {
       Order newOrder = new Order ("Title", "Description", "Price", "Date");
       int result = newOrder.Id;
       Assert.AreEqual(1, result);
     }
+    [TestMethod]
     public void Find_ReturnOrderById_Order()
     {
       Order newOrder1 = new Order ("Title", "Description", "Price", "Date");
       Order newOrder2 = new Order ("Title2", "Description2", "Price2", "Date2");
       Order result = Order.Find(1);
       Assert.AreEqual(newOrder1, result);
+    }
+    [TestMethod]
+    public void GetAll_ReturnOrderList_Order()
+    {
+      Order newOrder1 = new Order ("Title", "Description", "Price", "Date");
+      Order newOrder2 = new Order ("Title2", "Description2", "Price2", "Date2");
+      List<Order> list = new List<Order> {newOrder1, newOrder2};
+      List<Order> result = Order.GetAll();
+      CollectionAssert.AreEqual(list, result);
     }
   }
 }
