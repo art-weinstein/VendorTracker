@@ -50,5 +50,12 @@ namespace VendorTracker.Tests
       List<Vendor> result = Vendor.GetAll();
       CollectionAssert.AreEqual(list, result);
     }
+    [TestMethod]
+    public void GetAll_InstantiateVendorId_int()
+    {
+      Vendor newVendor = new Vendor("Test", "Test");
+      int result = newVendor.Id;
+      Assert.AreEqual(1, result);
+    }
   }
 }
