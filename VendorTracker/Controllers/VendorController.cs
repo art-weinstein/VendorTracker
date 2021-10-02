@@ -33,11 +33,11 @@ namespace VendorTracker.Controllers
       dictionary.Add("orders", purchases);
       return View(dictionary);
     }
-    [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int vendorId, string title, string description, string price, string date)
+    [HttpPost("/vendors/{Id}/orders")]
+    public ActionResult Create(int Id, string title, string description, string price, string date)
     {
       Dictionary<string, object> dictionary = new Dictionary<string, object>();
-      Vendor selectedVendor = Vendor.Find(vendorId);
+      Vendor selectedVendor = Vendor.Find(Id);
       Order newOrder = new Order(title, description, price, date);
       selectedVendor.AddOrder(newOrder);
       List<Order> purchases = selectedVendor.Purchases;
