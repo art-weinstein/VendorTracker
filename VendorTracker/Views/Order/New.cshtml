@@ -1,0 +1,12 @@
+@using VendorTracker.Models;
+<p>Enter purchase information for @Model.Name</p>
+<form action="/vendors/@Model.Id/orders" method="post">
+<label for="title">Name of order</label>
+<input id="title" name="title" type="text">
+<label for="description">Order Description</label>
+<input id="description" name="description" type="text">
+<label for="price">Price of order</label>
+<input id="price" name="price" type="text">
+<label for="date">Date of order</label>
+<input id="date" name="date" type="text">
+<button type="submit">Submit Order</button>

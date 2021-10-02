@@ -26,8 +26,24 @@ namespace VendorTracker.Controllers
     [HttpGet("/vendors/{Id}")]
     public ActionResult Show(int Id)
     {
-      Vendor vendor = Vendor.Find(Id);
-      return View(vendor);
+      Dictionary<string, object> dictionary = new Dictionary<string, object>();
+      Vendor currentVendor = Vendor.Find(Id);
+      List<Order> purchases = currentVendor.Purchases;
+      dictionary.Add("vendor", currentVendor);
+      dictionary.Add("orders", purchases);
+      return View(dictionary);
+    }
+    [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string title, string description, string price, string date)
+    {
+      Dictionary<string, object> dictionary = new Dictionary<string, object>();
+      Vendor selectedVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(title, description, price, date);
+      selectedVendor.AddOrder(newOrder);
+      List<Order> purchases = selectedVendor.Purchases;
+      dictionary.Add("orders", purchases);
+      dictionary.Add("vendor", selectedVendor);
+      return View("Show", dictionary);
     }
   }
 }
