@@ -1,5 +1,4 @@
-# My First Webpage
-
+# Vendor Tracker
 ### By Art Weinstein
 
 ### A basic web application that allows to track vendors and the orders they make. 
