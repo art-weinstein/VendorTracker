@@ -37,12 +37,12 @@ namespace VendorTracker.Controllers
     public ActionResult Create(int Id, string title, string description, string price, string date)
     {
       Dictionary<string, object> dictionary = new Dictionary<string, object>();
-      Vendor selectedVendor = Vendor.Find(Id);
+      Vendor currentVendor = Vendor.Find(Id);
       Order newOrder = new Order(title, description, price, date);
-      selectedVendor.AddOrder(newOrder);
-      List<Order> purchases = selectedVendor.Purchases;
+      currentVendor.AddOrder(newOrder);
+      List<Order> purchases = currentVendor.Purchases;
       dictionary.Add("orders", purchases);
-      dictionary.Add("vendor", selectedVendor);
+      dictionary.Add("vendor", currentVendor);
       return View("Show", dictionary);
     }
   }

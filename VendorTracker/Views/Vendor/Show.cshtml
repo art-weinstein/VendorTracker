@@ -1,14 +1,14 @@
 @using VendorTracker.Models
 <h1>Vendor Details: </h1>
 
-<ol>
-  @foreach (Order order in @Model["orders"])
+<ul>
+  @foreach (Order order in Model["orders"])
   {
     <li>Order Name: @order.Title</li>
     <li>Date Ordered: @order.Date</li>
     <li>Price: @order.Price</li>
     <li>Order Description: @order.Description</li>
   }
-</ol>
+</ul>
 <a href='/vendors'>Return to All Vendors </a>
 <a href='/vendors/@Model["vendor"].Id/orders/new'>Add an order for this vendor.</a>
